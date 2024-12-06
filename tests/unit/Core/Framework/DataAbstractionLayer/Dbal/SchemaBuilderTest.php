@@ -422,7 +422,7 @@ class TestEntityWithForeignKeysDefinition extends EntityDefinition
             (new IdField('id', 'id'))->addFlags(new PrimaryKey(), new Required()),
             new VersionField(),
             new ParentFkField(self::class),
-            (new ReferenceVersionField(self::class, 'parent_version_id'))->addFlags(new Required()),
+            (new ReferenceVersionField(self::class, 'parent_version_id', 'parentVersionId'))->addFlags(new Required()),
             new FkField('association_id', 'associationId', TestAssociationDefinition::class),
             new ManyToOneAssociationField('association', 'association_id', TestAssociationDefinition::class, 'id'),
             new FkField('association_id2', 'associationId2', TestAssociationDefinition::class),

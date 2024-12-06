@@ -245,7 +245,7 @@ class AttributeEntityCompiler
             $field instanceof OneToMany => [$property->getName(), $field->entity, $field->ref, 'id'],
             $field instanceof ManyToMany => [$property->getName(), $field->entity, self::mappingName($entity, $field), $entity . '_id', $field->entity . '_id'],
             $field instanceof AutoIncrement, $field instanceof Version => [],
-            $field instanceof ReferenceVersion => [$field->entity, $column],
+            $field instanceof ReferenceVersion => [$field->entity, $column, $property->getName()],
             $field instanceof Serialized => [$column, $property->getName(), $field->serializer],
             default => [$column, $property->getName()],
         };
